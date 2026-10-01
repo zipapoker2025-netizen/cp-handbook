@@ -1,0 +1,22 @@
+/* 4px base. --page-margin matches the 110/1920 left margin of the VI deck (5.7%). */
+:root{
+  --space-0:0px;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-7:32px;
+  --space-8:40px;
+  --space-9:48px;
+  --space-10:64px;
+  --space-11:80px;
+  --space-12:110px;
+
+  --page-margin:5.7%;
+  --gutter:24px;
+  --grid-columns:12; /* @kind other */
+  --measure:64ch; /* @kind other */
+  --content-max:1280px;
+}

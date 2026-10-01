@@ -1,0 +1,5 @@
+/* Minimal element defaults so a bare page already reads as ZIPA POKER. */
+body{margin:0;background:var(--surface-page);color:var(--text-primary);font:var(--type-body);letter-spacing:var(--ls-body);-webkit-font-smoothing:antialiased}
+a{color:var(--text-link);text-decoration:none;border-bottom:1px solid currentColor}
+a:hover{color:var(--text-link-hover)}
+::selection{background:var(--blue-800);color:var(--white)}

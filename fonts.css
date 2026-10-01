@@ -1,0 +1,12 @@
+/* Webfonts. Barlow Condensed / IBM Plex Mono / Noto Sans TC are all served from Google Fonts.
+   Noto Sans TC is the open-source release of 思源黑體 (Source Han Sans TC) named in the VI deck.
+   No licensed binaries were supplied with the source material — swap these @font-face URLs for
+   self-hosted files if the association licenses its own cut. */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap");
+
+:root{
+  --font-display:"Barlow Condensed","Noto Sans TC",Helvetica,sans-serif;
+  --font-zh:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",Helvetica,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}

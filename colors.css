@@ -1,0 +1,194 @@
+/* Palette — every value lifted verbatim from direction 1A of ZIPA_POKER_VI_0816.pptx (slides 3–4, 1 & 11). */
+:root{
+  /* Federation blue */
+  --blue-950:#0F1A3C; /* deck cover ground */
+  --blue-900:#16307A; /* felt inner / pressed blue */
+  --blue-800:#1B3A8C; /* 協會藍 — primary */
+  --blue-600:#2F5BD0; /* 亮藍 — links, active */
+  --blue-300:#B9C7EE; /* on-blue secondary text */
+  --blue-200:#9FB0DF; /* on-dark eyebrow */
+  --blue-100:#DCE0EC; /* on-dark body */
+
+  /* Race red — accent only */
+  --red-600:#C6402E; /* 競賽紅 */
+  --red-700:#A83526; /* pressed */
+
+  /* Ink + paper */
+  --ink-900:#101418; /* 墨黑 */
+  --ink-700:#43484F;
+  --ink-500:#5C6169;
+  --line-300:#D9DBD6;
+  --line-200:#E3E5E0;
+  --paper-200:#EDEEEB;
+  --paper-100:#F2F2EE; /* warm paper, deck cover type */
+  --paper-050:#F5F6F4; /* 紙白 */
+  --white:#FFFFFF;
+
+  /* Semantic text */
+  --text-primary:var(--ink-900);
+  --text-secondary:var(--ink-700);
+  --text-muted:var(--ink-500);
+  --text-brand:var(--blue-800);
+  --text-accent:var(--red-600);
+  --text-on-brand:var(--white);
+  --text-on-brand-muted:var(--blue-300);
+  --text-on-dark:var(--paper-100);
+  --text-on-dark-muted:var(--blue-100);
+  --text-link:var(--blue-600);
+  --text-link-hover:var(--blue-800);
+
+  /* Semantic surfaces */
+  --surface-page:var(--paper-050);
+  --surface-card:var(--white);
+  --surface-sunken:var(--paper-200);
+  --surface-brand:var(--blue-800);
+  --surface-brand-deep:var(--blue-950);
+  --surface-felt:var(--blue-900);
+  --surface-accent:var(--red-600);
+
+  /* Semantic borders */
+  --border-subtle:var(--line-200);
+  --border-strong:var(--line-300);
+  --border-on-brand:rgba(255,255,255,.5);
+
+  /* Status — tournament registration */
+  --status-open:var(--blue-600);
+  --status-full:var(--ink-500);
+  --status-live:var(--red-600);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2026-08 amendment — D02 (colour) and D04 (event tiers).
+   Everything above this line is untouched: 26 files reference those tokens.
+
+   D02 SETTLED 2026-08-23. Core: blue #0D4C87, red #C6402E, white #FFFFFF.
+   Extended: gold #B8873A, blue-black #12172E. These five are the palette the
+   association presents. --blue-800 #1B3A8C stays in the system but as a reading
+   tint for long-form text, not as a sixth brand colour.
+
+   Closed at the meeting (2026-08-23): A's pre-meeting hold on the swatches, asking for
+   more candidates, was resolved by keeping these five. No further candidates will be
+   produced. The palette is final.
+
+   Should a hex ever change, it changes here and in readme.md's Colour section only —
+   the contexts and roles below name no values, so nothing downstream has to move.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{
+  /* New primitives. CMYK and Pantone stay blank until the printer returns a proof. */
+  --blue-700:#0D4C87;   /* CORE — identity and short headings. Print rendition deferred, see below. */
+  --night-900:#12172E;  /* EXTENDED — brand ground for the flagship tier (D02/D04) */
+  --paper-warm:#F7F6F2; /* ivory — the soft light ground used by training material */
+  --gold-500:#B8873A;   /* EXTENDED — brand gold, dark grounds only (5.53:1 on --night-900) */
+  --gold-700:#8A631F;   /* deep gold — for light grounds; same hue, darkened to clear 4.5:1 */
+  --gold-300:#D9BC78;   /* highlight gold — hairlines and borders on dark grounds */
+
+  /* Two blues, split by text role rather than by context — the rule the meeting chose.
+     They differ by only 1.18:1, so mixing them inside one piece reads as a printing
+     error. Pick by what the text is doing, never by taste. */
+  --text-brand-mark:var(--blue-700);  /* identity, short headings, eyebrows */
+  --text-brand-read:var(--blue-800);  /* long-form headings and body-weight brand text */
+
+  /* Gold resolves per ground. Light is the default because most contexts are light. */
+  --accent-gold:var(--gold-700);
+  --accent-gold-line:var(--gold-700);
+
+  /* Settled at D02: the Logo blue is the primary. Kept as a single indirection so a
+     future change stays a one-line change rather than a search across 26 files. */
+  --brand-primary:var(--blue-700);
+
+  /* PRINT RENDITIONS DEFERRED (2026-08-23, by decision).
+     No CMYK or Pantone values are specified yet, so print output currently carries only
+     the sRGB values above. Four-colour process will render #0D4C87 darker and greyer than
+     the screen, and #B8873A flatter. That drift is known and accepted for now; the
+     document / print-large / venue-print contexts are the ones it reaches. Commission a
+     proof before anything goes to volume print. */
+}
+
+/* ── Contexts ──────────────────────────────────────────────────────────────
+   A context re-points the semantic layer; it never introduces a new brand colour.
+   Set it on <body>, or on a section to override an outer one.
+
+   Where a context forbids gold, --accent-gold degrades to a neutral ink rather than
+   staying gold. Anything that reaches for gold there goes quietly grey instead of
+   quietly wrong. CSS cannot enforce the rest of the rule — readme.md is what Claude
+   reads, and the oxlint hex rule is what stops raw values in code.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Official documents, contracts, entry forms, certificates. Print. Gold: lines and icons. */
+[data-context="document"]{
+  --surface-page:var(--white);
+  --accent-gold:var(--gold-700);
+  --accent-gold-line:var(--gold-700);
+}
+
+/* Venue posters, boards, table cards. Print. Gold may carry display-size headings. */
+[data-context="print-large"]{
+  --surface-page:var(--white);
+  --accent-gold:var(--gold-700);
+  --accent-gold-line:var(--gold-700);
+}
+
+/* IG feed, Threads, Google Business, LINE, Facebook. Screen. Gold: lines and icons. */
+[data-context="social"]{
+  --surface-page:var(--white);
+  --accent-gold:var(--gold-700);
+  --accent-gold-line:var(--gold-700);
+}
+
+/* IG Stories, Reels, YT Shorts. Screen. No gold — kept deliberately plainer than the feed. */
+[data-context="social-vertical"]{
+  --surface-page:var(--white);
+  --accent-gold:var(--ink-500);
+  --accent-gold-line:var(--line-300);
+}
+
+/* Wayfinding, table cards, check-in signage. Print. No gold. */
+[data-context="venue-print"]{
+  --surface-page:var(--white);
+  --accent-gold:var(--ink-500);
+  --accent-gold-line:var(--line-300);
+}
+
+/* Screen walls and displays. Dark, because a white wall of light in a dim room is glare.
+   Blue is unusable here (2.02:1) — reversed type carries the identity instead. */
+[data-context="venue-screen"]{
+  --surface-page:var(--night-900);
+  --text-primary:var(--white);
+  --text-secondary:var(--blue-100);
+  --text-muted:var(--blue-300);
+  --text-brand-mark:var(--white);
+  --text-brand-read:var(--white);
+  --text-accent:var(--red-600);      /* 3.51:1 — display sizes only, never body */
+  --accent-gold:var(--blue-300);
+  --accent-gold-line:rgba(255,255,255,.14);
+  --border-subtle:rgba(255,255,255,.14);
+  --border-strong:rgba(255,255,255,.28);
+  --surface-card:var(--night-900);
+}
+
+/* Training decks and internal documents. Ivory ground, screen and print.
+   Gold on ivory is 2.96:1 at --gold-500, which is why light grounds use --gold-700. */
+[data-context="training"]{
+  --surface-page:var(--paper-warm);
+  --surface-card:var(--white);
+  --accent-gold:var(--gold-700);
+  --accent-gold-line:var(--gold-700);
+}
+
+/* Flagship tier (D04). Black ground, gold lead. Declared last so that when it sits on the
+   same element as a platform context it wins; nested inside one, the cascade already
+   gives it precedence. Flagship overrides the platform, never the other way round. */
+[data-context="flagship"]{
+  --surface-page:var(--night-900);
+  --surface-card:var(--night-900);
+  --text-primary:var(--white);
+  --text-secondary:var(--blue-100);
+  --text-muted:var(--blue-300);
+  --text-brand-mark:var(--gold-500);
+  --text-brand-read:var(--white);
+  --text-accent:var(--red-600);      /* 3.51:1 — display sizes only, never body */
+  --accent-gold:var(--gold-500);
+  --accent-gold-line:var(--gold-300);
+  --border-subtle:rgba(255,255,255,.14);
+  --border-strong:rgba(216,188,120,.45);
+}

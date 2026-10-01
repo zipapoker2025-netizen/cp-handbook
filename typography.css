@@ -1,0 +1,41 @@
+/* Type scale. Three roles, never mixed inside one line:
+   display = Barlow Condensed (uppercase Latin, event names, figures)
+   body    = Noto Sans TC (all 中文, all sentence copy)
+   mono    = IBM Plex Mono (uppercase labels, dates, IDs, ≤13px) */
+:root{
+  --fs-display-2xl:96px;
+  --fs-display-xl:64px;
+  --fs-display-lg:48px;
+  --fs-display-md:34px;
+  --fs-title-lg:32px;
+  --fs-title-md:24px;
+  --fs-title-sm:20px;
+  --fs-body-lg:18px;
+  --fs-body-md:16px;
+  --fs-body-sm:14px;
+  --fs-label-md:13px;
+  --fs-label-sm:11px;
+
+  --lh-display:0.92; /* @kind other */
+  --lh-title:1.25; /* @kind other */
+  --lh-body:1.7; /* @kind other */
+  --lh-label:1.2; /* @kind other */
+
+  --ls-display:0.005em; /* @kind other */
+  --ls-title-zh:0.02em; /* @kind other */
+  --ls-body:0.01em; /* @kind other */
+  --ls-mono:0.14em; /* @kind other */   /* mono labels are always letterspaced */
+  --ls-name:0.34em; /* @kind other */   /* 王 俊 豪 — spaced personal names on cards */
+
+  --fw-display:700; /* @kind other */
+  --fw-zh-title:700; /* @kind other */
+  --fw-zh-heavy:900; /* @kind other */
+  --fw-body:400; /* @kind other */
+  --fw-mono:500; /* @kind other */
+
+  /* Composed roles */
+  --type-display:var(--fw-display) var(--fs-display-xl)/var(--lh-display) var(--font-display); /* @kind font */
+  --type-title-zh:var(--fw-zh-title) var(--fs-title-lg)/var(--lh-title) var(--font-zh); /* @kind font */
+  --type-body:var(--fw-body) var(--fs-body-md)/var(--lh-body) var(--font-body); /* @kind font */
+  --type-label:var(--fw-mono) var(--fs-label-md)/var(--lh-label) var(--font-mono); /* @kind font */
+}

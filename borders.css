@@ -1,0 +1,17 @@
+/* 1A is a square system. Everything is a right angle except the table-felt stadium. */
+:root{
+  --radius-none:0px;
+  --radius-pill:999px;
+
+  --border-hairline:1px solid var(--border-subtle); /* @kind other */
+  --border-hairline-strong:1px solid var(--border-strong); /* @kind other */
+  --border-brand:1px solid var(--blue-800); /* @kind other */
+
+  --rule-accent-h:6px;   /* 競賽紅 bar under a headline */
+  --band-h:13px;         /* blue band across the top of a signage/card panel */
+  --keyline-w:3px;       /* white keyline on the felt */
+
+  /* No drop shadows anywhere in 1A. Elevation is expressed by fill + hairline. */
+  --shadow-none:none;
+  --shadow-card:none;
+}
